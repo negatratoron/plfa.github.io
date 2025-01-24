@@ -16,7 +16,6 @@ import Relation.Binary.PropositionalEquality as Eq
 open Eq using (_≡_; refl)
 open import Data.Nat using (ℕ; zero; suc; _+_; _*_)
 open import Relation.Nullary using (¬_)
-open import Data.Product using (_×_; proj₁; proj₂) renaming (_,_ to ⟨_,_⟩)
 open import Data.Sum using (_⊎_; inj₁; inj₂)
 open import plfa.part1.Isomorphism using (_≃_; extensionality; ∀-extensionality)
 open import Function using (_∘_)
@@ -189,11 +188,9 @@ signature for `proj₂′`.
 Products arise as a special case of existentials, where the second
 component does not depend on the first component.
 ```
-_×′_ : Set → Set → Set
-A ×′ B = Σ[ x ∈ A ] B
+_×_ : Set → Set → Set
+A × B = Σ[ x ∈ A ] B
 ```
-(Here we prime `×` to avoid collision with product from the standard
-library, which we imported for use in exercises in the last section.)
 
 When a product is viewed as evidence of a conjunction,
 both of its components are viewed as evidence, whereas when it is
